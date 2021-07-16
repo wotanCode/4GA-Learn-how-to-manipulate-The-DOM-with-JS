@@ -4,7 +4,9 @@ button.addEventListener("click", function() {
 	let holamundo = document.createElement("div");
 	holamundo.innerHTML = "Hello World";
 	holamundo.style.background = "yellow";
-	document.querySelector("body").appendChild(holamundo);
+	//document.querySelector("body").appendChild(holamundo);
+	document.body.appendChild(holamundo);
+
 	//let holamundo = (document.body.innerHTML = "<div>Hello World</div>");
 	//let holamundo = (document.body.innerHTML = "<div style ='background: yellow'>Hello World</div>");
 });
