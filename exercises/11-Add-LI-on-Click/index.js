@@ -3,25 +3,11 @@ import { createBrotliDecompress } from "zlib";
 let button = document.querySelector("#superDuperButton");
 button.addEventListener("click", function() {
 	//your code here
-
-	let nuevalista = document.createElement("li");
-	nuevalista.innerHTML = "Fourth Element";
-	document.querySelector("#myList").appendChild(nuevalista);
-
-});
-
-
-import { createBrotliDecompress } from "zlib";
-
-let button = document.querySelector("#superDuperButton");
-button.addEventListener("click", function() {
-	//your code here
-
 	//const expected = 'innerHTML = "Fourth element";';
-    //document.querySelector("#myList").appendChild(nuevalista);
-	//document.querySelector("#myList").appendChild((nuevalista.innerHTML = "Fourth Element"));
 
-	let nuevalista = document.createElement("li");
-	nuevalista.innerHTML = "Fourth element";
-	document.querySelector("#myList").appendChild(nuevalista);
+	//innerHTML = "Fourth element";
+
+	let nuevalista = document.createElement("li"); //importante
+	nuevalista.innerHTML = "Fourth Element"; //importante
+	document.querySelector("#myList").appendChild(nuevalista); //importante
 });
