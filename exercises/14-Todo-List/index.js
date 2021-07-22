@@ -1,36 +1,44 @@
 // Your code here
-let seleccionar = document.querySelector("ul"); // aqui seleccionamos el uL
-let nuevospan = document.createElement("span"); //creamos la etiqueta span
+let seleccionar = document.querySelector("ul"); // aqui seleccionamos el uL //creamos la etiqueta span
 
 //Funcion para agregar elementos
 function elinput() {
+	//Variables
 	let input = document.getElementById("addToDo").value; //capturamos lo que se escribe en el input
 	let nuevalista = document.createElement("li"); //creamos la etiqueta Li
-	//AQUI VA EL SPAN
 	let text = document.createTextNode(input); //Agregamos el texto al input
-	nuevospan.appendChild(btnBorrar()); //agregamos al Li el span
-	nuevalista.appendChild(nuevospan); //añado la etiqueta span al mismo li
-	nuevalista.appendChild(text); //Metemos el elemento a la lista
-	seleccionar.appendChild(nuevalista); //Aqui se supone que metemos la lista nueva
+	/*Construimos el nuevo elemento*/
+	nuevalista.appendChild(btnBorrar()); //agregamos al <li> el span recordemos que el span esta dentro de una funcion
+	nuevalista.appendChild(text); //Agregamos al li el texto ingresado
+	seleccionar.appendChild(nuevalista); //agregamos al Input
 	//nuevalista.innerHTML = input; //Metemos el elemento a la lista
+	deleteElements();
+	document.getElementById("addToDo").value = ""; //lo ponemos vacio de nuevo
 }
 
-//Funcion para el boton de eliminar, agregarlo
+//Funcion para crear el boton de eliminar, agregarlo
 function btnBorrar() {
+	//variables
+	let nuevospan = document.createElement("span"); //creamos la etiqueta span
 	let nuevoi = document.createElement("i"); //creamos la etiqueta i
-	let botedebasura = document.querySelectorAll(".fa-trash");
-	nuevoi.className = "fa fa-trash";
-	nuevoi.addEventListener("click", function(e) {
-		console.log(botedebasura);
-		let item = e.target.parentElement;
-		let item2 = item.parentElement; //agregando esta linea remueve cosas pero con problemas
-		seleccionar.removeChild(item2);
-		//item2.removeChild(item);
-	});
-	return nuevoi;
+	//Construimos el elemento
+	nuevoi.className = "fa fa-trash"; //añadimos la clase al I
+	nuevospan.appendChild(nuevoi); //metemos dentro del span el I
+	return nuevospan; //creamos el elemento ya construido
 }
-//document.querySelectorAll(".fa-trash")
-
+//Funcion para borrar elementos
+function deleteElements() {
+	//variables
+	let botesbasura = document.querySelectorAll(".fa-trash"); //creamos el elemento para borrar
+	for (let botedebasura of botesbasura) {
+		botedebasura.addEventListener("click", function(e) {
+			let item = e.target.parentElement;
+			let item2 = item.parentElement;
+			//console.log(item2);
+			seleccionar.removeChild(item2);
+		});
+	}
+}
 //insertamos en la lista el contenido del input
 let aux = document.querySelector("#addToDo");
 aux.addEventListener("keypress", function(e) {
@@ -38,6 +46,7 @@ aux.addEventListener("keypress", function(e) {
 		elinput();
 	}
 });
+//deleteElements();
 
 //ZONA DEPRUEBAS
 //Con esto comprobamos que seleccionamos el UL

@@ -1,6 +1,6 @@
 {
     "port": 3000,
-    "address": "https://tan-barnacle-1iypzxn6.ws-us11.gitpod.io",
+    "address": "https://emerald-kingfisher-1i85v7be.ws-us10.gitpod.io",
     "editor": "gitpod",
     "configPath": {
         "config": "bc.json",
@@ -187,7 +187,7 @@
         {
             "slug": "14-Todo-List",
             "title": "14-Todo-List",
-            "done": false,
+            "done": true,
             "path": "exercises/14-Todo-List",
             "translations": [
                 "es",
